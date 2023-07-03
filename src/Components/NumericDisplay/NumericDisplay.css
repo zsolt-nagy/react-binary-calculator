@@ -1,0 +1,35 @@
+.numeric-display {
+    padding: 24px;
+    font-size: 24px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.numeric-display-row {
+    display: flex;
+    justify-content: center;
+    margin: 12px;
+}
+
+.numeric-display-field {
+    max-width: 70vw;
+    width: 500px;
+    text-align: right;
+    display: inline-block;
+    border: 2px solid whitesmoke;
+    padding: 6px;
+}
+
+.numeric-display-operator, .numeric-display-placeholder {
+    width: 10vw;
+    text-align: left;
+    margin-left: 5vw;
+    display: inline-block;
+    padding: 6px;
+}
+
+.numeric-display-label {
+    width: 48px;
+    text-align: center;
+    padding: 6px;
+}
