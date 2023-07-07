@@ -1,0 +1,10 @@
+.history-table th,
+.history-table td {
+    padding: .5rem;
+    border: 1px solid whitesmoke;
+}
+
+.history-table {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+}

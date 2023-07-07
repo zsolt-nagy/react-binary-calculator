@@ -1,0 +1,10 @@
+.calculator-form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.calculator-form-cell > .btn {
+    width: 4rem;
+    margin: 1rem;
+    font-weight: 700;
+}

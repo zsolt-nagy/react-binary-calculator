@@ -1,0 +1,9 @@
+.saved-actions-container>.btn {
+    width: 4rem;
+    margin: 1rem;
+    font-weight: 700;
+}
+
+.value-field { 
+    text-align: right;
+}
