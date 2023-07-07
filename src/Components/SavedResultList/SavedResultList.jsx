@@ -6,7 +6,7 @@ export default function SavedResultList({ history }) {
     const Rows = history.map(item => <SavedResultItem time={item.time} value={item.value} key={item.time} />);
 
     return (
-        <table class="history-table">
+        <table className="history-table">
             <thead>
                 <tr>
                     <th>Date</th>

@@ -1,9 +1,10 @@
 import React from 'react';
 import './CalculatorForm.css';
 
-export default function CalculatorForm() {
+export default function CalculatorForm({ executeCommand }) {
+
     function handleClick(buttonText) {
-        alert(buttonText);
+        executeCommand(buttonText);
     }
 
     /* 
@@ -35,7 +36,7 @@ export default function CalculatorForm() {
                 <button className="btn btn-warning" onClick={() => handleClick('+/-')}>+/-</button>
             </div>
             <div className="calculator-form-cell">
-                <button className="btn btn-info" onClick={() => handleClick('M+')}>M+</button>
+                <button className="btn btn-info" onClick={() => handleClick('H+')}>H+</button>
             </div>
             <div className="calculator-form-cell">
                 <button className="btn btn-danger" onClick={() => handleClick('C')}>C</button>
