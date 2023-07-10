@@ -9,12 +9,13 @@ function App() {
     const MOD_LIMIT = 2 ** MAX_LENGTH;
 
     const [memory, setMemory] = useState("0");
+    const [memorySign, setMemorySign] = useState("+");
+    const [isMemoryUpdated, setMemoryIsUpdated] = useState(false);
 
     const [current, setCurrent] = useState("0");
     const [currentSign, setCurrentSign] = useState("+");
     const [isCurrentUpdated, setCurrentIsUpdated] = useState(true);
 
-    const [memorySign, setMemorySign] = useState("+");
     const [operator, setOperator] = useState("");
     const [history, setHistory] = useState([
         /* // uncomment this data structure for testing if needed
@@ -46,6 +47,9 @@ function App() {
         } else if (op === "-") {
             result = leftOperand - rightOperand;
         } else if (op === "*") {
+            if (!isMemoryUpdated) {
+                leftOperand = 1;
+            }
             result = leftOperand * rightOperand;
         } else {
             return;
@@ -64,6 +68,7 @@ function App() {
         setCurrentSign(resultSign);
         setMemorySign(resultSign);
         setCurrentIsUpdated(false);
+        setMemoryIsUpdated(true);
     }
 
     function executeCommand(op) {
@@ -93,6 +98,8 @@ function App() {
             setMemory("0");
             setMemorySign("+");
             setOperator("");
+            setMemoryIsUpdated(false);
+            setCurrentIsUpdated(true);
         } else if (op === "+" || op === "-" || op === "*") {
             setOperator(op);
 
