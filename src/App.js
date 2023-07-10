@@ -5,7 +5,9 @@ import NumericDisplay from "./Components/NumericDisplay/NumericDisplay";
 import SavedResultList from "./Components/SavedResultList/SavedResultList";
 
 function App() {
-    const MAX_LENGTH = 12;
+    const MAX_LENGTH = 24;
+    const MOD_LIMIT = 2 ** MAX_LENGTH;
+
     const [memory, setMemory] = useState("0");
 
     const [current, setCurrent] = useState("0");
@@ -48,6 +50,7 @@ function App() {
         } else {
             return;
         }
+        result = result % MOD_LIMIT;
 
         if (result < 0) {
             resultSign = "-";
@@ -138,6 +141,7 @@ function App() {
 
     return (
         <div className="App">
+            <h1>Mod 2**24 binary calculator</h1>
             <NumericDisplay
                 current={current}
                 currentSign={currentSign}
