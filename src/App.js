@@ -15,6 +15,7 @@ function App() {
     const [memorySign, setMemorySign] = useState("+");
     const [operator, setOperator] = useState("");
     const [history, setHistory] = useState([
+        /* // uncomment this data structure for testing if needed
         {
             time: 1688426026176,
             value: "-1110",
@@ -23,6 +24,7 @@ function App() {
             time: 1688426027777,
             value: "1000",
         },
+      */
     ]);
 
     function calculateResult(op = operator) {
