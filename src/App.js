@@ -52,8 +52,6 @@ function App() {
             result *= -1;
         }
 
-        debugger;
-
         result = Number(result).toString(2);
 
         setCurrent(result);
@@ -110,6 +108,32 @@ function App() {
         }
     }
 
+    function loadFromHistory(value) {
+        if (value[0] === "-") {
+            setCurrentSign("-");
+            value = value.slice(1);
+        } else {
+            setCurrentSign("+");
+        }
+        setCurrent(value);
+        setCurrentIsUpdated(true);
+    }
+
+    function deleteHistoryItem(timestamp) {
+        /*  // easy solution with basic operations
+        let newHistory = [];
+        for (let item of history) {
+            if (item.time !== timestamp) {
+                newHistory.push(item);
+            }
+        }
+        setHistory(newHistory);
+      */
+
+        // filter
+        setHistory((oldHistory) => oldHistory.filter((item) => item.time !== timestamp));
+    }
+
     return (
         <div className="App">
             <NumericDisplay
@@ -120,7 +144,11 @@ function App() {
                 memorySign={memorySign}
             />
             <CalculatorForm executeCommand={executeCommand} />
-            <SavedResultList history={history} />
+            <SavedResultList
+                history={history}
+                loadFromHistory={loadFromHistory}
+                deleteHistoryItem={deleteHistoryItem}
+            />
         </div>
     );
 }
